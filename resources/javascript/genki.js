@@ -25,10 +25,11 @@
       std_multi : 'Solve the problems by choosing the correct answers.',
       std_questions : 'Answer the questions as best as you can.',
       std_culture : 'Answer the questions about Japanese culture as best as you can.',
-      mistakes : 'The items outlined in <span class="t-red">red</span> were answered wrong before finding the correct answer. Review these problems before trying again.',
-      writing_mistakes : 'The items outlined in <span class="t-red">red</span> were answered wrong. Review these problems before trying again.',
-      multi_mistakes : 'The answers you selected that were wrong are outlined in <span class="t-red">red</span>. The correct answers are outlined in <span class="t-orange">orange</span>. Review these problems before trying again.',
-      fill_mistakes : 'The items underlined in <span class="t-red">red</span> were answered wrong, the correct answers are listed underneath in <span class="t-red">red</span>. Review these problems before trying again.',
+      mistakes : 'The items outlined in <span class="t-red t-bold">red</span> were answered wrong before finding the correct answer. Review these problems before trying again.',
+      writing_mistakes : 'The items outlined in <span class="t-red t-bold">red</span> were answered wrong. Review these problems before trying again.',
+      multi_mistakes : 'The answers you selected that were wrong are outlined in <span class="t-red t-bold">red</span>. The correct answers are outlined in <span class="t-blue t-bold">blue</span>. Review these problems before trying again.',
+      fill_mistakes : 'The items underlined in <span class="t-red t-bold">red</span> were answered wrong, the correct answers are listed underneath in <span class="t-green t-bold">green</span>. Review these problems before trying again.',
+      sub_answers : '<b>Note:</b> Answers inside <span class="t-blue t-bold">blue</span> parentheses separated by "<span class="alt-phrase-sep">/</span>" are a list of possible sub-answers; only one can be used.<br>For example.. <span class="t-green"><span class="alt-phrase">(</span>あの<span class="alt-phrase-sep">/</span>その<span class="alt-phrase">)</span>ねこ</span>: そのねこ or あのねこ <span class="t-green">(good)</span> vs あの/そのねこ <span class="t-red">(bad)</span>',
       
       // buttons
       // review button for drag/drop exercises
@@ -36,7 +37,8 @@
       // furigana toggle for vocab exercises
       toggle_furigana : '<button class="button" onclick="Genki.toggle.furigana(this);"><i class="fa">&#xf2a8;</i>' + ((window.localStorage && localStorage.furiganaVisible == 'false') ? 'Show' : 'Hide') + ' Furigana</button>',
       // check answers button for written exercises
-      check_answers : '<div id="check-answers" class="center"><button class="button" onclick="Genki.check.answers();"><i class="fa">&#xf00c;</i>Check Answers</button></div>'
+      check_answers : '<div id="check-answers" class="center"><button class="button" onclick="Genki.check.answers();"><i class="fa">&#xf00c;</i>Check Answers</button></div>',
+      back_to_dict : '<button class="button" onclick="Genki.appendix.jisho.reset();"><i class="fa">&#xf021;</i>Back to Dictionary</button>'
     },
 
     // info about the currently active exercise
@@ -48,15 +50,17 @@
     
     // exercise list
     exercises : [
-      // Pre-Lesson
+      // Lesson 0
       'lesson-0/hiragana-1|Hiragana|p.24-25',
       'lesson-0/hiragana-2|Hiragana: Diacritical Marks|p.25',
       'lesson-0/hiragana-3|Hiragana: Combos|p.25-26',
+      'lesson-0/hiragana-4|Practice: Hiragana|p.24-26',
       'lesson-0/katakana-1|Katakana|p.28',
       'lesson-0/katakana-2|Katakana: Diacritical Marks|p.28-29',
       'lesson-0/katakana-3|Katakana: Combos|p.29',
       'lesson-0/katakana-4|Katakana: Additional Combos|p.30',
-      'lesson-0/match-1|Match: Hiragana and Katakana|p.24 & 28',
+      'lesson-0/katakana-5|Practice: Katakana|p.28-30',
+      'lesson-0/match-1|Bonus: Match Hiragana and Katakana|p.24 & 28',
       'lesson-0/greetings|Greetings|p.34-35',
       'lesson-0/greetings-practice|Practice: Greetings|p.37',
       'lesson-0/culture-1|Culture Note: Greetings and Bowing|p.37',
@@ -70,19 +74,19 @@
       'lesson-1/vocab-5|Vocabulary: Occupations|p.41',
       'lesson-1/vocab-6|Vocabulary: Family|p.41',
       'lesson-1/culture-1|Culture Note: Japanese Names|p.45',
-      'lesson-1/numbers-1|Numbers: 0-10|p.46-47',
-      'lesson-1/numbers-2|Numbers: 11-20, 30, 40...|p.48',
+      'lesson-1/numbers-1|Practice: Numbers 0-10|p.46-47',
+      'lesson-1/numbers-2|Practice: Numbers 11-100|p.48',
       'lesson-1/numbers-3|Practice: Numbers|p.48; I-A, B & C',
-      'lesson-1/time-1|Time|p.49',
+      'lesson-1/time-1|Practice: Time (Hours)|p.49',
       'lesson-1/time-2|Practice: Time|p.49-50; II-A & B',
       'lesson-1/phone-1|Practice: Telephone Numbers|p.50; III-A',
-      'lesson-1/grammar-1|Practice: の|p.51; IV',
-      'lesson-1/grammar-2|Practice: Describing People|p.51-52; V-A',
-      'lesson-1/grammar-3|Practice: Q&A|p.52-53; V-B',
-      'lesson-1/grammar-4|Practice: Describing People 2|p.53-54; VI-A',
-      'lesson-1/grammar-5|Practice: Q&A 2|p.54; VI-B',
-      'lesson-1/time-3|Time: Minutes|p.57',
-      'lesson-1/age-1|Age|p.57',
+      'lesson-1/grammar-1|Practice: NounのNoun|p.51; IV',
+      'lesson-1/grammar-2|Practice: XはYです 1|p.51-52; V-A',
+      'lesson-1/grammar-3|Practice: Question Sentences 1|p.52-53; V-B',
+      'lesson-1/grammar-4|Practice: XはYです 2|p.53-54; VI-A',
+      'lesson-1/grammar-5|Practice: Question Sentences 2|p.54; VI-B',
+      'lesson-1/time-3|Useful Expressions: Time (Minutes)|p.57',
+      'lesson-1/age-1|Useful Expressions: Age|p.57',
       'lesson-1/vocab-7|Bonus Vocabulary: Words in Genki|p.24-57',
       'lesson-1/workbook-1|Workbook: Numbers|p.13',
       'lesson-1/workbook-2|Workbook: Time|p.14; I',
@@ -96,7 +100,7 @@
       'lesson-1/literacy-3|Hiragana Practice: Diacritical Marks|p.290; I-E',
       'lesson-1/literacy-4|Hiragana Practice: Combos|p.290; I-F',
       'lesson-1/literacy-5|Hiragana Practice: Rearrange|p.291; I-H',
-      'lesson-1/literacy-6|Hiragana Reading Practice|p.292-293; II',
+      'lesson-1/literacy-6|Reading Practice: Hiragana|p.292-293; II',
       'lesson-1/literacy-wb-1|Workbook: Hiragana Writing Practice (あ-こ)|p.117; I',
       'lesson-1/literacy-wb-2|Workbook: Spelling Practice (あ-こ)|p.117; II & III',
       'lesson-1/literacy-wb-3|Workbook: Hiragana Writing Practice (さ-と)|p.118; I',
@@ -119,19 +123,19 @@
       'lesson-2/vocab-4|Vocabulary: Places|p.61',
       'lesson-2/vocab-5|Vocabulary: Money and Expressions|p.61',
       'lesson-2/culture-1|Culture Note: Japanese Currency|p.68',
-      'lesson-2/numbers-1|Numbers: Hundreds|p.69',
-      'lesson-2/numbers-2|Numbers: Thousands|p.69',
-      'lesson-2/numbers-3|Numbers: Ten Thousands|p.69',
+      'lesson-2/numbers-1|Practice: Numbers (Hundreds)|p.69',
+      'lesson-2/numbers-2|Practice: Numbers (Thousands)|p.69',
+      'lesson-2/numbers-3|Practice: Numbers (Ten Thousands)|p.69',
       'lesson-2/numbers-4|Practice: Numbers|p.69; I-A',
       'lesson-2/numbers-5|Practice: Prices|p.69-70; I-B',
       'lesson-2/grammar-1|Practice: これ, それ, and あれ|p.71-72; II-A & B',
       'lesson-2/grammar-2|Practice: この, その, and あの|p.72-73; III-A',
-      'lesson-2/grammar-3|Practice: Asking for Directions|p.74; IV',
-      'lesson-2/grammar-4|Practice: Giving Directions|p.74; IV',
-      'lesson-2/grammar-5|Practice: も|p.75-76; VI',
-      'lesson-2/grammar-6|Practice: Negative Statements|p.76; VII-A',
+      'lesson-2/grammar-3|Practice: どこ|p.74; IV',
+      'lesson-2/grammar-4|Practice: ここ, そこ, あそこ|p.74; IV',
+      'lesson-2/grammar-5|Practice: Noun も|p.75-76; VI',
+      'lesson-2/grammar-6|Practice: Noun じゃないです|p.76; VII-A',
       'lesson-2/vocab-6|Bonus Vocabulary: Food|p.79',
-      'lesson-2/vocab-7|Bonus Vocabulary: Classroom Objects|p.83',
+      'lesson-2/vocab-7|Useful Expressions: Classroom Objects|p.83',
       'lesson-2/vocab-8|Useful Expressions: In the Classroom|p.83',
       'lesson-2/workbook-1|Workbook: Numbers|p.20; I, II, & III',
       'lesson-2/workbook-2|Workbook: これ, それ, and あれ|p.21; I & II',
@@ -144,7 +148,7 @@
       'lesson-2/literacy-2|Katakana Practice: Word Match|p.294; I-B',
       'lesson-2/literacy-3|Katakana Practice: Countries and Capitals|p.295; I-C',
       'lesson-2/literacy-4|Katakana Practice: Rearrange|p.296; I-E',
-      'lesson-2/literacy-5|Katakana Reading Practice|p.297; III',
+      'lesson-2/literacy-5|Reading Practice: Katakana|p.297; III',
       'lesson-2/literacy-wb-1|Workbook: Katakana Writing Practice (ア-コ)|p.124; I',
       'lesson-2/literacy-wb-2|Workbook: Spelling Practice (ア-コ)|p.124; II',
       'lesson-2/literacy-wb-3|Workbook: Katakana Writing Practice (サ-ト)|p.125; I',
@@ -166,17 +170,17 @@
       'lesson-3/vocab-7|Vocabulary: Adjectives and Expressions|p.87',
       'lesson-3/grammar-7|Review: Identifying Verbs|p.89',
       'lesson-3/grammar-1|Practice: Verb Conjugation|p.95; I-A',
-      'lesson-3/grammar-2|Practice: を and で|p.95-96; I-B',
-      'lesson-3/grammar-3|Practice: Indicating the Goal of Movement|p.96; I-C',
-      'lesson-3/grammar-4|Practice: Time Expressions|p.98; II-A',
-      'lesson-3/grammar-5|Practice: Time Expressions 2|p.98; II-C',
-      'lesson-3/grammar-6|Practice: Making Suggestions|p.99; III-A',
+      'lesson-3/grammar-2|Practice: Particles を and で|p.95-96; I-B',
+      'lesson-3/grammar-3|Practice: Particles に and へ|p.96; I-C',
+      'lesson-3/grammar-4|Practice: Time References 1|p.98; II-A',
+      'lesson-3/grammar-5|Practice: Time References 2|p.98; II-C',
+      'lesson-3/grammar-6|Practice: Suggestion Using ～ませんか|p.99; III-A',
       'lesson-3/culture-1|Culture Note: Japanese Houses|p.101',
       'lesson-3/workbook-1|Workbook: Verb Conjugation|p.27',
       'lesson-3/workbook-2|Workbook: Noun を Verb|p.28',
       'lesson-3/workbook-3|Workbook: Verbs with Places|p.29; I & II',
-      'lesson-3/workbook-4|Workbook: Time Expressions|p.30; I',
-      'lesson-3/workbook-5|Workbook: Time References|p.30; II & III',
+      'lesson-3/workbook-4|Workbook: Time References 1|p.30; I',
+      'lesson-3/workbook-5|Workbook: Time References 2|p.30; II & III',
       'lesson-3/workbook-6|Workbook: Suggestion Using ～ませんか|p.31; I & II',
       'lesson-3/workbook-7|Workbook: Frequency Adverbs|p.32',
       'lesson-3/workbook-8|Workbook: Questions|p.35',
@@ -208,17 +212,17 @@
       'lesson-4/vocab-6|Vocabulary: Location Words|p.106',
       'lesson-4/culture-1|Culture Note: Japanese National Holidays|p.114',
       'lesson-4/grammar-1|Practice: Ｘがあります|p.116; I-C',
-      'lesson-4/grammar-2|Practice: Describing Locations|p.117; II-A & B',
+      'lesson-4/grammar-2|Practice: Describing Where Things Are|p.117; II-A & B',
       'lesson-4/grammar-3|Practice: Past Tense of です|p.118; III-A',
       'lesson-4/grammar-4|Practice: Past Tense of Verbs|p.120; IV-A',
-      'lesson-4/grammar-5|Practice: Past Tense|p.120; IV-B',
+      'lesson-4/grammar-5|Practice: Past Tense 1|p.120; IV-B',
       'lesson-4/grammar-6|Practice: Past Tense 2|p.121; IV-C & D',
-      'lesson-4/grammar-7|Practice: も|p.122; V-A',
-      'lesson-4/grammar-8|Practice: Descriptions Using も|p.122-123; V-B',
+      'lesson-4/grammar-7|Practice: も 1|p.122; V-A',
+      'lesson-4/grammar-8|Practice: も 2|p.122-123; V-B',
       'lesson-4/grammar-9|Practice: ～時間|p.123; VI-A',
-      'lesson-4/vocab-7|Bonus Vocabulary: Days 1-15|p.127',
-      'lesson-4/vocab-8|Bonus Vocabulary: Days 16-31|p.127',
-      'lesson-4/vocab-9|Bonus Vocabulary: Months|p.127',
+      'lesson-4/vocab-7|Useful Expressions: Days 1-15|p.127',
+      'lesson-4/vocab-8|Useful Expressions: Days 16-31|p.127',
+      'lesson-4/vocab-9|Useful Expressions: Months|p.127',
       'lesson-4/vocab-10|Useful Expressions: Time Words|p.127',
       'lesson-4/workbook-1|Workbook: Ｘがあります／います|p.36; I & II',
       'lesson-4/workbook-2|Workbook: Describing Where Things Are|p.37; I & II',
@@ -252,21 +256,21 @@
       'lesson-5/vocab-2|Vocabulary: い-adjectives|p.130-131',
       'lesson-5/vocab-3|Vocabulary: な-adjectives|p.131',
       'lesson-5/vocab-4|Vocabulary: Verbs and Expressions|p.131',
-      'lesson-5/grammar-1|Practice: Present Affirmative Adjectives|p.137; I-A',
-      'lesson-5/grammar-2|Practice: Present Negative Adjectives|p.137; I-B',
-      'lesson-5/grammar-3|Practice: Present Adjectives|p.137-138; I-C',
-      'lesson-5/grammar-4|Practice: Present Adjectives 2|p.138; I-D',
-      'lesson-5/grammar-5|Practice: Past Affirmative Adjectives|p.139; II-A',
-      'lesson-5/grammar-6|Practice: Past Negative Adjectives|p.139; II-B',
-      'lesson-5/grammar-7|Practice: Past Adjectives|p.139; II-C',
-      'lesson-5/grammar-8|Practice: Past Adjectives 2|p.140; II-D',
-      'lesson-5/grammar-9|Practice: Modifying Nouns with Adjectives|p.140; III-A',
-      'lesson-5/grammar-10|Practice: Describing People with Adjectives|p.141; III-B',
-      'lesson-5/grammar-11|Practice: 好き(な)／きらい(な)|p.141; IV-A',
+      'lesson-5/grammar-1|Practice: Adjective Conjugation (Present Affirmative)|p.137; I-A',
+      'lesson-5/grammar-2|Practice: Adjective Conjugation (Present Negative)|p.137; I-B',
+      'lesson-5/grammar-3|Practice: Adjectives (Present Tense) 1|p.137-138; I-C',
+      'lesson-5/grammar-4|Practice: Adjectives (Present Tense) 2|p.138; I-D',
+      'lesson-5/grammar-5|Practice: Adjective Conjugation (Past Affirmative)|p.139; II-A',
+      'lesson-5/grammar-6|Practice: Adjective Conjugation (Past Negative)|p.139; II-B',
+      'lesson-5/grammar-7|Practice: Adjectives (Past Tense) 1|p.139; II-C',
+      'lesson-5/grammar-8|Practice: Adjectives (Past Tense) 2|p.140; II-D',
+      'lesson-5/grammar-9|Practice: Adjective + Noun 1|p.140; III-A',
+      'lesson-5/grammar-10|Practice: Adjective + Noun 2|p.141; III-B',
+      'lesson-5/grammar-11|Practice: 好き(な)／きらい(な) 1|p.141; IV-A',
       'lesson-5/grammar-12|Practice: 好き(な)／きらい(な) 2|p.141; IV-B',
       'lesson-5/grammar-13|Practice: ～ましょう|p.142; V-A',
       'lesson-5/culture-1|Culture Note: Japanese Festivals|p.144',
-      'lesson-5/vocab-5|Bonus Vocabulary: At the Post Office|p.145',
+      'lesson-5/vocab-5|Useful Expressions: Post Office Words|p.145',
       'lesson-5/vocab-6|Useful Expressions: At the Post Office|p.145',
       'lesson-5/workbook-1|Workbook: Adjective Conjugation (Present Tense)|p.45',
       'lesson-5/workbook-2|Workbook: Adjectives (Present Tense)|p.46; I & II',
@@ -304,7 +308,7 @@
       'lesson-6/culture-1|Culture Note: Japan\'s Educational System (1)|p.154',
       'lesson-6/grammar-2|Practice: Te-form Conjugation|p.156; I-A',
       'lesson-6/grammar-3|Practice: ～てください|p.156-157; I-C & D',
-      'lesson-6/grammar-4|Practice: ～てもいいですか|p.158; II-A & B',
+      'lesson-6/grammar-4|Practice: ～てもいいです|p.158; II-A & B',
       'lesson-6/grammar-5|Practice: ～てはいけません|p.159; III-A',
       'lesson-6/grammar-6|Practice: ～てもいいです／～てはいけません|p.159; III-C',
       'lesson-6/grammar-7|Practice: Describing Two Activites|p.159-160; IV-A & B',
@@ -391,14 +395,14 @@
       'lesson-8/grammar-3|Practice: Short Form Conjugation (Adjectives/Nouns)|p.198; I-B',
       'lesson-8/grammar-4|Practice: Informal Speech (Verbs)|p.198-199; II-A',
       'lesson-8/grammar-5|Practice: Informal Speech (Adjectives/Nouns)|p.199; II-B',
-      'lesson-8/grammar-6|Practice: Quotations (～と思います)|p.199; III-A',
+      'lesson-8/grammar-6|Practice: Quotations (～と思います) 1|p.199; III-A',
       'lesson-8/grammar-7|Practice: Quotations (～と思います) 2|p.199-200; III-B',
       'lesson-8/grammar-8|Practice: Quotations (～と言っていました)|p.201; IV-A',
       'lesson-8/grammar-9|Practice: ～ないでください|p.202; V-A',
       'lesson-8/grammar-10|Practice: Verb のが好きです|p.202; VI-A',
       'lesson-8/grammar-11|Practice: が|p.203; VII-A',
-      'lesson-8/grammar-12|Practice: 何もしませんでした|p.204; VIII-A',
-      'lesson-8/vocab-6|Bonus Vocabulary: 日本の食べ物|p.207',
+      'lesson-8/grammar-12|Practice: 何も|p.204; VIII-A',
+      'lesson-8/vocab-6|Culture Note: Common Dishes in Japan|p.207',
       'lesson-8/culture-1|Culture Note: Foods in Japan|p.207',
       'lesson-8/workbook-1|Workbook: Short Forms (Present Tense)|p.73',
       'lesson-8/workbook-2|Workbook: Short Forms (Informal Speech)|p.74; I & II',
@@ -430,22 +434,22 @@
       'lesson-9/vocab-4|Vocabulary: Adverbs and Other Expressions|p.211',
       'lesson-9/vocab-5|Vocabulary: Numbers (to count small items)|p.211',
       'lesson-9/grammar-1|Review: Short Form Conjugation Rules (Past Tense)|p.212',
-      'lesson-9/grammar-2|Practice: Short Form Past Conjugation (Verbs)|p.217; I-A',
-      'lesson-9/grammar-3|Practice: Short Form Past Conjugation (Adjectives/Nouns)|p.217-218; I-B',
-      'lesson-9/grammar-4|Practice: Informal Speech (Verbs)|p.218; II-A',
-      'lesson-9/grammar-5|Practice: Informal Speech (Adjectives/Nouns)|p.219; II-B',
+      'lesson-9/grammar-2|Practice: Short Form Conjugation (Past Tense Verbs)|p.217; I-A',
+      'lesson-9/grammar-3|Practice: Short Form Conjugation (Past Tense Adjectives/Nouns)|p.217-218; I-B',
+      'lesson-9/grammar-4|Practice: Informal Speech (Past Tense Verbs)|p.218; II-A',
+      'lesson-9/grammar-5|Practice: Informal Speech (Past Tense Adjectives/Nouns)|p.219; II-B',
       'lesson-9/grammar-6|Practice: Quotations (～と思います)|p.219; III-A',
       'lesson-9/grammar-7|Practice: Quotations (～と言っていました)|p.220; IV-A',
       'lesson-9/grammar-8|Practice: Qualifying Nouns with Verbs|p.221; V-A',
       'lesson-9/grammar-9|Practice: まだ～ていません|p.222; VI-A',
       'lesson-9/grammar-10|Practice: ～から|p.223; VII-A',
       'lesson-9/culture-1|Culture Note: Japanese Traditional Culture|p.226',
-      'lesson-9/vocab-6|Bonus Vocabulary: Colors|p.227',
+      'lesson-9/vocab-6|Useful Expressions: Color Names|p.227',
       'lesson-9/vocab-7|Useful Expressions: Colors|p.227',
       'lesson-9/workbook-1|Workbook: Past Tense Short Forms|p.82',
       'lesson-9/workbook-2|Workbook: Past Tense Short Forms (Informal Speech)|p.83; I & II',
       'lesson-9/workbook-3|Workbook: Past Tense Short Forms (～と思います)|p.84; I & II',
-      'lesson-9/workbook-4|Workbook: Past Tense Short Forms (～と言っていました)|p.85',
+      'lesson-9/workbook-4|Workbook: Quotations (～と言っていました)|p.85',
       'lesson-9/workbook-5|Workbook: Qualifying Nouns with Verbs|p.86',
       'lesson-9/workbook-6|Workbook: まだ～ていません|p.87',
       'lesson-9/workbook-7|Workbook: ～から|p.88; I & II',
@@ -482,9 +486,9 @@
       'lesson-10/grammar-7|Practice: で行きます|p.245; VII-A',
       'lesson-10/grammar-8|Practice: かかります|p.245; VII-B',
       'lesson-10/culture-1|Culture Note: Public Transportation in Japan|p.247',
-      'lesson-10/vocab-6|Bonus Vocabulary: At the Station 1|p.248',
-      'lesson-10/vocab-7|Bonus Vocabulary: At the Station 2|p.248',
-      'lesson-10/vocab-8|Useful Expressions: At the Station|p.249',
+      'lesson-10/vocab-6|Useful Expressions: At the Station 1|p.248',
+      'lesson-10/vocab-7|Useful Expressions: At the Station 2|p.248',
+      'lesson-10/vocab-8|Useful Expressions: At the Station 3|p.249',
       'lesson-10/workbook-1|Workbook: Comparison between Two Items|p.91; I & II',
       'lesson-10/workbook-2|Workbook: Comparison among Three or More Items|p.92; I & II',
       'lesson-10/workbook-3|Workbook: Adjective/Noun + の|p.93; I & II',
@@ -521,8 +525,8 @@
       'lesson-11/grammar-5|Practice: Noun A や Noun B|p.263; IV-A',
       'lesson-11/culture-1|Culture Note: New Year\'s|p.264',
       'lesson-11/vocab-6|Useful Expressions: In the Japanese Class|p.265',
-      'lesson-11/vocab-7|Bonus Vocabulary: In the Japanese Class 1|p.265',
-      'lesson-11/vocab-8|Bonus Vocabulary: In the Japanese Class 2|p.265',
+      'lesson-11/vocab-7|Useful Expressions: Japanese Class Vocabulary 1|p.265',
+      'lesson-11/vocab-8|Useful Expressions: Japanese Class Vocabulary 2|p.265',
       'lesson-11/workbook-1|Workbook: ～たい|p.100; I & II',
       'lesson-11/workbook-2|Workbook: ～たり～たりする|p.101; I & II',
       'lesson-11/workbook-3|Workbook: ～ことがある|p.102; I & II',
@@ -549,7 +553,7 @@
       'lesson-12/vocab-3|Vocabulary: い-adjectives and な-adjectives|p.268-269',
       'lesson-12/vocab-4|Vocabulary: U-verbs, Ru-verbs, and Irregular Verbs|p.269',
       'lesson-12/vocab-5|Vocabulary: Adverbs and Other Expressions|p.269',
-      'lesson-12/grammar-1|Practice: ～んです|p.276; I-A',
+      'lesson-12/grammar-1|Practice: ～んです 1|p.276; I-A',
       'lesson-12/grammar-2|Practice: ～んです 2|p.277; I-B',
       'lesson-12/grammar-3|Practice: ～すぎる|p.278-279; II-A',
       'lesson-12/grammar-4|Practice: ～ほうがいいです|p.280; III-A',
@@ -559,7 +563,7 @@
       'lesson-12/grammar-8|Practice: ～でしょう|p.283; VI-A',
       'lesson-12/culture-1|Culture Note: The Japanese Climate|p.286',
       'lesson-12/vocab-6|Useful Expressions: Health and Illness|p.287-288',
-      'lesson-12/vocab-7|Bonus Vocabulary: Health and Illness|p.288',
+      'lesson-12/vocab-7|Useful Expressions: Doctor\'s Office Words|p.288',
       'lesson-12/workbook-1|Workbook: ～んです|p.106; I & II',
       'lesson-12/workbook-2|Workbook: ～すぎる|p.107; I & II',
       'lesson-12/workbook-3|Workbook: ～ほうがいいです|p.108; I & II',
@@ -600,7 +604,7 @@
       'lesson-13/grammar-9|Practice: 一週間に三回|p.45-46; VI-A',
       'lesson-13/culture-1|Culture Note: Names of Years|p.48',
       'lesson-13/culture-2|Culture Note: East Asian Zodiacs|p.48',
-      'lesson-13/vocab-7|Bonus Vocabulary: At the Bank|p.49',
+      'lesson-13/vocab-7|Useful Expressions: Bank Words|p.49',
       'lesson-13/vocab-8|Useful Expressions: At the Bank|p.49',
       'lesson-13/workbook-1|Workbook: Potential Verbs Conjugation Practice|p.11; I',
       'lesson-13/workbook-2|Workbook: Potential Verbs 1|p.12; II',
@@ -753,7 +757,7 @@
       'lesson-17/grammar-7|Practice: ～てから|p.136; VI-A',
       'lesson-17/grammar-8|Practice: ～前に|p.137; VI-B',
       'lesson-17/vocab-6|Useful Expressions: At the Barber/Beauty Salon|p.139',
-      'lesson-17/vocab-7|Bonus Vocabulary: At the Barber/Beauty Salon|p.139',
+      'lesson-17/vocab-7|Useful Expressions: Barber/Beauty Salon Words|p.139',
       'lesson-17/workbook-1|Workbook: ～そうです／～って|p.44; I, II, & III',
       'lesson-17/workbook-2|Workbook: ～たら|p.45; I & II',
       'lesson-17/workbook-3|Workbook: ～なくてもいいです|p.46; I, II, & III',
@@ -792,7 +796,7 @@
       'lesson-18/grammar-9|Practice: ～ばよかったです|p.158-159; V-B',
       'lesson-18/culture-1|Culture Note: Sushi|p.163',
       'lesson-18/culture-2|Culture Note: Popular Sushi Toppings|p.163',
-      'lesson-18/workbook-0|Workbook: Transitivity Pairs|bonus',
+      'lesson-18/workbook-0|Workbook: Transitivity Pairs 0|bonus',
       'lesson-18/workbook-1|Workbook: Transitivity Pairs 1|p.51; I & II',
       'lesson-18/workbook-2|Workbook: Transitivity Pairs 2|p.52; I',
       'lesson-18/workbook-3|Workbook: ～てしまう|p.53; I & II',
@@ -947,6 +951,69 @@
       'lesson-22/workbook-1|Workbook: Causative Sentences 1|p.86; I & II',
       'lesson-22/workbook-2|Workbook: Causative Sentences 2|p.87',
       'lesson-22/workbook-3|Workbook: Causative + あげる／くれる|p.88; I & II',
+      'lesson-22/workbook-4|Workbook: Verb Stem + なさい|p.89; I & II',
+      'lesson-22/workbook-5|Workbook: ～ば|p.90; I, II, & III',
+      'lesson-22/workbook-6|Workbook: ～のに|p.91; I & II',
+      'lesson-22/workbook-7|Workbook: ～のような／～のように|p.92; I, II, & III',
+      'lesson-22/workbook-8|Workbook: Questions|p.94; I',
+      'lesson-22/literacy-1|Kanji Practice: 記, 銀, and 回|p.336',
+      'lesson-22/literacy-2|Kanji Practice: 夕, 黒, and 用|p.336',
+      'lesson-22/literacy-3|Kanji Practice: 守, 末, and 待|p.336-337',
+      'lesson-22/literacy-4|Kanji Practice: 残, 番, and 駅|p.337',
+      'lesson-22/literacy-5|Kanji Practice: 説, 案, 内, and 忘|p.337',
+      'lesson-22/literacy-6|Kanji Practice: Write the Readings|p.338; I-A & B',
+      'lesson-22/literacy-7|Reading Practice: 友美さんの日記|p.339-341; II-B, C, & D',
+      'lesson-22/literacy-wb-1|Workbook: Kanji Writing Practice|p.127',
+      'lesson-22/literacy-wb-2|Workbook: Spelling Practice (記, 銀, 回, and 夕)|p.127; bonus',
+      'lesson-22/literacy-wb-3|Workbook: Spelling Practice (黒, 用, 守, and 末)|p.127; bonus',
+      'lesson-22/literacy-wb-4|Workbook: Spelling Practice (待, 残, 番, and 駅)|p.127; bonus',
+      'lesson-22/literacy-wb-5|Workbook: Spelling Practice (説, 案, 内, and 忘)|p.127; bonus',
+      'lesson-22/literacy-wb-6|Workbook: Fill in the Blanks|p.128',
+      
+      // Lesson 23
+      'lesson-23/vocab-1|Vocabulary: Nouns 1|p.254',
+      'lesson-23/vocab-2|Vocabulary: Nouns 2|p.254',
+      'lesson-23/vocab-3|Vocabulary: い-adjectives and U-verbs|p.254-255',
+      'lesson-23/vocab-4|Vocabulary: Ru-verbs and Irregular Verbs|p.255',
+      'lesson-23/vocab-5|Vocabulary: Adverbs and Other Expressions|p.255',
+      'lesson-23/grammar-1|Practice: Causative-passive Sentences 1|p.262; I-A',
+      'lesson-23/grammar-2|Practice: Causative-passive Sentences 2|p.262-263; I-B',
+      'lesson-23/grammar-3|Practice: Causative-passive Sentences 3|p.263; I-C',
+      'lesson-23/grammar-4|Practice: ～ても 1|p.264-265; II-A',
+      'lesson-23/grammar-5|Practice: ～ても 2|p.265; II-B',
+      'lesson-23/grammar-6|Practice: ～ことにする|p.266; III-A',
+      'lesson-23/grammar-7|Practice: ～ことにしている|p.267; IV-A',
+      'lesson-23/grammar-8|Practice: ～まで|p.268; V-A',
+      'lesson-23/grammar-9|Practice: ～方|p.269; VI-A',
+      'lesson-23/culture-1|Culture Note: Japanese Proverbs|p.273',
+      'lesson-23/workbook-1|Workbook: Verb Conjugation (Causative-passive)|p.95-96; I & II',
+      'lesson-23/workbook-2|Workbook: Causative-passive Sentences|p.97; I & II',
+      'lesson-23/workbook-3|Workbook: Passive and Causative-passive|p.98',
+      'lesson-23/workbook-4|Workbook: ～ても|p.99; I & II',
+      'lesson-23/workbook-5|Workbook: ～ことにする|p.100; I & II',
+      'lesson-23/workbook-6|Workbook: ～ことにしている|p.101; I & II',
+      'lesson-23/workbook-7|Workbook: ～まで|p.102; I & II',
+      'lesson-23/workbook-8|Workbook: ～方|p.103; I & II',
+      'lesson-23/workbook-9|Workbook: Questions|p.105; I',
+      'lesson-23/literacy-1|Kanji Practice: 顔, 情, and 怒|p.342',
+      'lesson-23/literacy-2|Kanji Practice: 変, 相, and 横|p.342',
+      'lesson-23/literacy-3|Kanji Practice: 比, 化, and 違|p.342-343',
+      'lesson-23/literacy-4|Kanji Practice: 悲, 調, and 査|p.343',
+      'lesson-23/literacy-5|Kanji Practice: 果, 感, and 答|p.343',
+      'lesson-23/literacy-6|Kanji Practice: Write the Readings|p.344; I-A & B',
+      'lesson-23/literacy-7|Reading Practice: これはどんな顔?|p.345-347; II-B, C, & D',
+      'lesson-23/literacy-wb-1|Workbook: Kanji Writing Practice|p.129',
+      'lesson-23/literacy-wb-2|Workbook: Spelling Practice (顔, 情, 怒, and 変)|p.129; bonus',
+      'lesson-23/literacy-wb-3|Workbook: Spelling Practice (相, 横, 比, and 化)|p.129; bonus',
+      'lesson-23/literacy-wb-4|Workbook: Spelling Practice (遺, 悲, 調, and 査)|p.129; bonus',
+      'lesson-23/literacy-wb-5|Workbook: Spelling Practice (果, 感, and 答)|p.129; bonus',
+      'lesson-23/literacy-wb-6|Workbook: Fill in the Blanks|p.130',
+      
+      // Appendix
+      'appendix/dictionary|Dictionary|p.350-379',
+      'appendix/map-of-japan|Map of Japan|p.380-381',
+      'appendix/numbers-chart|Numbers Chart|p.382-383',
+      'appendix/conjugation-chart|Conjugation Chart|p.384-385',
       
       // Study Tools
       'study-tools/custom-vocab|Custom Vocabulary Practice',
@@ -989,10 +1056,9 @@
       *****************************
       ** 1. DRAG AND DROP        **
       ** 2. KANA DRAG AND DROP   **
-      ** 3. VERB CONJUGATION     **
-      ** 4. WRITING PRACTICE     **
-      ** 5. MULTIPLE CHOICE      **
-      ** 6. FILL IN THE BLANKS   **
+      ** 3. WRITING PRACTICE     **
+      ** 4. MULTIPLE CHOICE      **
+      ** 5. FILL IN THE BLANKS   **
       *****************************/
 
       // # 1. DRAG AND DROP #
@@ -1092,84 +1158,18 @@
       }
 
 
-      // # 3. VERB CONJUGATION #
-      else if (o.type == 'verb') {
-        var quiz = '<div id="quiz-info">' + o.info + '</div><div id="question-list"><div class="quiz-column-title"></div>',
-            dropList = '<div id="drop-list">',
-            answers = [],
-            keysQ = [],
-            keysA,
-            columns = -1, i, j;
-
-        // generate a key list for the quizlet so we can randomly sort questions and answers
-        for (i in o.quizlet) {
-          keysQ.push(i);
-        }
-        keysA = keysQ.slice(0);
-
-        // generate the column titles
-        dropList += '<div class="quiz-title-row">';
-        while (++columns < o.columns.length) {
-          dropList += '<div class="quiz-column-title">' + o.columns[columns] + '</div>';
-        }
-        dropList += '</div>';
-
-
-        // generate the questions
-        while (keysQ.length) {
-          columns = -1;
-          i = Math.floor(Math.random() * keysQ.length);
-          quiz += '<div class="quiz-item">' + keysQ[i] + '</div>';
-
-          // create the answer row and contents
-          dropList += '<div class="quiz-answer-row">';
-          while (++columns < o.columns.length) {
-            dropList += '<div class="quiz-answer-zone" data-text="' + keysQ[i] + '-' + columns + '" data-mistakes="0"></div>';
-            ++Genki.stats.problems;
-          }
-          dropList += '</div>';
-
-          keysQ.splice(i, 1);
-        }
-        quiz += '</div>' + dropList + '</div>'; // close the question list and add the drop list
-
-
-        // generate the answers
-        for (i = 0, j = keysA.length; i < j; i++) {
-          columns = -1;
-
-          while (++columns < o.columns.length) {
-            answers.push('<div class="quiz-item" data-answer="' + keysA[i] + '-' + columns + '">' + o.quizlet[keysA[i]][columns] + '</div>');
-          }
-        }
-
-        // randomize the answer list
-        quiz += '<div id="answer-list">';
-        while (answers.length) {
-          i = Math.floor(Math.random() * answers.length);
-
-          quiz += answers[i];
-
-          answers.splice(i, 1);
-        }
-        quiz += '</div>'; // close the answer list
-
-        // add the quiz to the document
-        zone.innerHTML = quiz + Genki.lang.review;
-      }
-
-
-      // # 4. WRITING PRACTICE #
+      // # 3. WRITING PRACTICE #
       else if (o.type == 'writing') {
         var quiz = '<div id="quiz-info">' + o.info + '<br>If you don\'t know how to type in Japanese on your computer, please visit our help page by <a href="../../../help/writing/' + Genki.local + '" target="_blank">clicking here</a>.</div><div id="question-list">',
             columns = o.columns,
             width = 'style="width:' + (100 / (columns + 1)) + '%;"',
             index = 0,
+            helper = false,
             i, j;
 
         for (i in o.quizlet) {
           // create a new row
-          quiz += '<div class="quiz-answer-row"><div class="quiz-item" data-helper="' + o.quizlet[i] + '" ' + width + '>' + i + '</div>';
+          quiz += '<div class="quiz-answer-row' + (o.quizlet[i] ? ' furi-row' : '') + '"><div class="quiz-item" data-helper="' + o.quizlet[i] + '" ' + width + '>' + i + '</div>';
           j = 0;
 
           // insert the writing zones
@@ -1181,9 +1181,15 @@
           quiz += '</div>'; // close the row
           columns = o.columns; // reset column value for next iteration
         }
+        
+        // check if furigana is present and add a toggle button
+        if (/data-helper/.test(quiz)) {
+          helper = true;
+          zone.className += ' helper-' + ((window.localStorage && localStorage.furiganaVisible == 'false') ? 'hidden' : 'present');
+        }
 
         // add the quiz to the document
-        zone.innerHTML = quiz + '</div>' + Genki.lang.check_answers;
+        zone.innerHTML = quiz + '</div>' + Genki.lang.check_answers.replace(/<\/div>/, helper ? Genki.lang.toggle_furigana + '</div>' : '</div>');
         
         // add a class for non-practice writing exercises
         // this will remove helpers, forcing the student to recall what they learned
@@ -1202,12 +1208,13 @@
       }
 
 
-      // # 5. MULTIPLE CHOICE #
+      // # 4. MULTIPLE CHOICE #
       else if (o.type == 'multi') {
         var quiz = '<div id="quiz-info">' + o.info + '</div><div id="question-list">',
             answers = '<div id="answer-list">',
             option = 65, // used for tagging answers as A(65), B(66), C(67)..
             isAnswer = false,
+            helper = false,
             q = o.quizlet,
             i = 0,
             j = q.length,
@@ -1258,16 +1265,22 @@
           option = 65; // resets the option id so the next answers begin with A, B, C..
           ++Genki.stats.problems; // increment problems number
         }
+        
+        // check if furigana is present and add a toggle button
+        if (/class="furigana"/.test(quiz)) {
+          helper = true;
+          zone.className += ' helper-' + ((window.localStorage && localStorage.furiganaVisible == 'false') ? 'hidden' : 'present');
+        }
 
         // add the multi-choice quiz to the quiz zone
-        zone.innerHTML = quiz + '</div><div id="quiz-progress"><div id="quiz-progress-bar"></div></div>';
+        zone.innerHTML = quiz + '</div><div id="quiz-progress"><div id="quiz-progress-bar"></div></div>' + (helper ? '<div id="review-exercise" class="center clearfix">' + Genki.lang.toggle_furigana + '</div>' : '');
 
         // begin the quiz
         Genki.progressQuiz('init');
       }
       
       
-      // # 6. FILL IN THE BLANKS #
+      // # 5. FILL IN THE BLANKS #
       else if (o.type == 'fill') {
         
         // add the quiz to the document
@@ -1298,7 +1311,13 @@
                 (flag == 'furigana' ? 'data-furigana="' + hint + '" ' : '')+
                 'data-mistakes="0" '+
                 'tabindex="0" '+
-                'style="width:' + (/width/.test(flag) ? flag.split(':')[1] : (((hint || data[0]).length * (14 / (/[a-z]/i.test(hint || data[0]) ? 2 : 1))) + 14))+ 'px;"'+
+                'style="width:' + (/width/.test(flag) ? flag.split(':')[1] : (((hint || data[0]).replace(/\%\((.*?)\)/, function (Match, $1) {
+              // returns ONLY the longest string in the alternative answers array to prevent abnormally large inputs
+              return $1.split('/').sort(function (a, b) {
+                return b.length - a.length;
+              })[0];
+              
+            }).length * (14 / (/[a-z]/i.test(hint || data[0]) && !/[\u3000-\u30FF]/.test(hint || data[0]) ? 2 : 1))) + 14)) + 'px;"'+
               '>'+
               ((hint && !/answer|furigana/.test(flag)) ? '<span class="problem-hint">' + hint + '</span>' : '')+
             '</span>';
@@ -1312,7 +1331,7 @@
 
 
       // # DRAG AND DROP FUNCTIONALITY #
-      if (o.type == 'drag' || o.type == 'kana' || o.type == 'verb') {
+      if (o.type == 'drag' || o.type == 'kana') {
         // setup drag and drop
         var drake = dragula([document.querySelector('#answer-list')], {
           isContainer : function (el) {
@@ -1450,8 +1469,12 @@
             Genki.stats.score > 70 ? 'Nice work! ' + Genki.lang[type ? type + '_mistakes' : 'mistakes'] :
             'Keep studying! ' + Genki.lang[type ? type + '_mistakes' : 'mistakes']
           )+
+          (document.querySelector('.alt-phrase') ? '<br><br>' + Genki.lang.sub_answers : '')+
           '<div class="center">'+
-            '<a href="./' + Genki.local + '" class="button"><i class="fa">&#xf021;</i>Try Again</a>'+
+            (
+              /\/dictionary\//.test(window.location) ? Genki.lang.back_to_dict :
+              '<a href="./' + Genki.local + '" class="button"><i class="fa">&#xf021;</i>Try Again</a>'
+            )+
             '<button class="button" onclick="Genki.breakTime();"><i class="fa">&#xf0f4;</i>Take a Break</button>'+
             '<a href="' + document.getElementById('home-link').href + '" class="button"><i class="fa">&#xf015;</i>Back to Index</a>'+
           '</div>'+
@@ -1552,7 +1575,10 @@
           document.getElementById('quiz-timer').style.display = 'none';
 
           // show restart button
-          document.getElementById('review-exercise').innerHTML = '<a href="./' + Genki.local + '" class="button"><i class="fa">&#xf021;</i>Restart</a>' + (document.querySelector('.drag-quiz') ? Genki.lang.toggle_furigana : '');
+          document.getElementById('review-exercise').innerHTML = (
+            /\/dictionary\//.test(window.location) ? Genki.lang.back_to_dict :
+            '<a href="./' + Genki.local + '" class="button"><i class="fa">&#xf021;</i>Restart</a>'
+          ) + (document.querySelector('.drag-quiz') ? Genki.lang.toggle_furigana : '');
 
           // change the quiz info
           document.getElementById('quiz-info').innerHTML = 'You are currently in review mode; go ahead and take your time to study. When you are ready to practice this exercise, click the "restart" button.';
@@ -1600,34 +1626,63 @@
             Genki.exerciseComplete = true;
 
             // hide check answers button
-            document.getElementById('check-answers').style.display = 'none';
+            document.querySelector('#check-answers button').style.display = 'none';
 
             // loop over the inputs and check to see if the answers are correct
             var input = document.querySelectorAll('#exercise .writing-zone-input'),
-                i = 0, j = input.length, val, answer, data;
+                i = 0, j = input.length, k, correct, val, data, answer, alt;
 
             for (; i < j; i++) {
+              correct = false;
               data = input[i].dataset;
               val = input[i].value.toLowerCase();
-              answer = data.answer.toLowerCase();
+              
+              // check for the correct answer
+              for (k in data) {
+                if (/answer/.test(k)) {
+                  answer = data[k].toLowerCase();
+                  
+                  // check if there's alternative answers in the answer
+                  // alternative answers are given as %(alt1/alt2/etc.)
+                  if (/%\(.*?\)/.test(answer)) {
+                    alt = answer.replace(/.*?%\((.*?)\).*/, '$1').split('/');
+                    
+                    // loop through alternatives
+                    while (alt.length) {
+                      if (val == answer.replace(/%\(.*?\)/, alt[0])) {
+                        correct = true;
+                        break; // break out if correct answer is found
+                      }
+                      
+                      alt.splice(0, 1); // remove the checked answer
+                    }
+                  } 
+                  
+                  // otherwise check the answer normally
+                  else if (val == answer) {
+                    correct = true;
+                  }
+                  
+                  // break out of the loop when a correct answer is found 
+                  if (correct) break;
+                }
+              }
+              
+              // add classname to correct answers
+              if (correct) {
+                input[i].parentNode.className += ' answer-correct';  
+              }
 
               // increment mistakes if the answer is incorrect
-              if (
-                (!data.answer2 && val != answer)
-                || 
-                (data.answer2 && val != answer && val != data.answer2.toLowerCase())
-              ) {
-                data.mistakes = ++data.mistakes;
+              else {
+                ++data.mistakes;
                 ++Genki.stats.mistakes;
 
                 if (type == 'fill') {
-                  input[i].parentNode.insertAdjacentHTML('beforeend', '<span class="problem-answer">' + data.answer + (data.answer2 || data.furigana ? '<span class="secondary-answer' + (data.furigana ? ' furigana-only' : '') + '">' + (data.answer2 || data.furigana) + '</span>' : '') + '</span>');
+                  input[i].parentNode.insertAdjacentHTML('beforeend', ('<span class="problem-answer">' + data.answer + (data.answer2 || data.furigana ? '<span class="secondary-answer' + (data.furigana ? ' furigana-only' : '') + '">' + (data.answer2 || data.furigana) + '</span>' : '') + '</span>').replace(/%\((.*?)\)/g, function (Match, $1) {
+                    return '<span class="alt-phrase">(</span>' + $1.replace(/\//g, '<span class="alt-phrase-sep">/</span>') + '<span class="alt-phrase">)</span>'
+                  }));
                 }
-              }
-
-              // add classname to correct answers
-              else {
-                input[i].parentNode.className += ' answer-correct';  
               }
 
               // increment problems solved
@@ -1733,7 +1788,7 @@
       // creates the exercise list
       exerciseList : function () {
         var attrs = 'class="lesson-title" onclick="Genki.toggle.list(this);" onkeydown="event.key == \'Enter\' && Genki.toggle.list(this);" tabindex="0"', // lesson-title attrs
-            list = '<nav id="exercise-list"><h3 class="main-title">Exercise List</h3><div id="lessons-list"><h4 ' + attrs + '>Pre-Lesson</h4><ul id="lesson-0">',
+            list = '<nav id="exercise-list"><h3 class="main-title">Exercise List</h3><div id="lessons-list"><h4 ' + attrs + '>Lesson 0</h4><ul id="lesson-0">',
             lesson = 'lesson-0',
             i = 0,
             j = Genki.exercises.length,
@@ -1757,7 +1812,10 @@
 
           // if the lesson group is different create a new group
           if (!new RegExp(lesson).test(linkData[0])) {
-            lesson = /^study-tools/.test(linkData[0]) ? 'study-tools' : linkData[0].replace(/(lesson-\d+)\/.*/, '$1');
+            lesson = /^appendix/.test(linkData[0]) ? 'appendix' : 
+                     /^study-tools/.test(linkData[0]) ? 'study-tools' : 
+                     linkData[0].replace(/(lesson-\d+)\/.*/, '$1');
+            
             list += '</ul><h4 ' + attrs + '>' + lesson.charAt(0).toUpperCase() + lesson.replace(/-/, ' ').slice(1) + '</h4><ul id="' + lesson + '">';
             group = '';
           }
@@ -1779,7 +1837,7 @@
         // open the current lesson and scroll to the active exercise
         if (Genki.active.exercise) {
           // open the active lesson
-          Genki.toggle.list(document.getElementById(/^study-tools/.test(Genki.active.exercise[0]) ? 'study-tools' : Genki.active.exercise[0].replace(/(lesson-\d+)\/.*/, '$1')).previousSibling);
+          Genki.toggle.list(document.getElementById(/^appendix/.test(Genki.active.exercise[0]) ? 'appendix' : /^study-tools/.test(Genki.active.exercise[0]) ? 'study-tools' : Genki.active.exercise[0].replace(/(lesson-\d+)\/.*/, '$1')).previousSibling);
 
           // highlight the active exercise and scoll to it
           active = document.querySelector('a[href*="' + Genki.active.exercise[0] + '"]');
@@ -1827,9 +1885,13 @@
 
       // add exercise title to the document
       if (Genki.active.exercise) {
-        lesson = /^study-tools/.test(Genki.active.exercise[0]) ? 'study-tools' : +Genki.active.exercise[0].replace(/lesson-(\d+).*/, '$1'); // current lesson
+        lesson = /^appendix/.test(Genki.active.exercise[0]) ? 'appendix' : /^study-tools/.test(Genki.active.exercise[0]) ? 'study-tools' : +Genki.active.exercise[0].replace(/lesson-(\d+).*/, '$1'); // current lesson
         
-        result.insertAdjacentHTML('beforebegin', '<h2 id="exercise-title" class="center" ' + (Genki.active.exercise[2] ? 'data-page="Genki ' + (lesson < 13 ? 'I' : 'II') + (/workbook-|wb-/.test(Genki.active.exercise[0]) ? ' Workbook' : '') + ': ' + Genki.active.exercise[2] + '"' : '') + '>' + (lesson == 'study-tools' ? 'ツール' : '第' + lesson + '課') + ' - ' + Genki.active.exercise[1] + '</h2>');
+        result.insertAdjacentHTML('beforebegin', '<h2 id="exercise-title" class="center" ' + (Genki.active.exercise[2] ? 'data-page="Genki ' + (lesson < 13 ? 'I' : 'II') + (/workbook-|wb-/.test(Genki.active.exercise[0]) ? ' Workbook' : '') + ': ' + Genki.active.exercise[2] + '"' : '') + '>' + (
+          lesson == 'appendix' ? '巻末' :
+          lesson == 'study-tools' ? 'ツール' :
+          '第' + lesson + '課'
+        ) + ' - ' + Genki.active.exercise[1] + '</h2>');
         
       } else {
         result.insertAdjacentHTML('beforebegin', '<h2 id="exercise-title" class="center">' + document.querySelector('TITLE').innerText.replace(/\s\|.*/, '') + '</h2>');
